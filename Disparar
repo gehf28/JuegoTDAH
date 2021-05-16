@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Disparar : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public Transform DispararPrefab;
+    public float tiempoEntreDisparos = 0.5f;
+
+    private float otroDisparo = 0f;
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Input.GetButtonDown("Fire1") || Input.touchCount > 0 && Time.time > otroDisparo)
+        {
+            otroDisparo = Time.time + tiempoEntreDisparos;
+            Instantiate(DispararPrefab, transform.position, transform.rotation);
+        }
+        
+    }
+}

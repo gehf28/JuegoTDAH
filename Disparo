@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Disparo : MonoBehaviour
+{
+    Rigidbody rigidbody;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+        rigidbody.AddForce(transform.forward * 800);
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "Piso")
+        {
+            Destroy(gameObject, 1);
+            GetComponentInChildren<ParticleSystem>().enableEmission = false;
+        }
+        else if(other.tag == "Pelotitas"){
+            Destroy(gameObject, 1);
+            GetComponentInChildren<ParticleSystem>().enableEmission = false;
+            other.SendMessage("Eliminado", SendMessageOptions.DontRequireReceiver);
+        }
+    }
+}

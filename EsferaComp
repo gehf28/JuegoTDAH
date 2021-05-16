@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EsferaComp : MonoBehaviour
+{
+    public Transform explosionPrefab;
+    private ControlPuntos controlPuntos;
+    // Start is called before the first frame update
+    void Start()
+    {
+        controlPuntos = GameObject.Find("ControladorJuego").GetComponent<ControlPuntos>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void Eliminado()
+    {
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
+        controlPuntos.AumentarPuntos(1);
+    }
+}

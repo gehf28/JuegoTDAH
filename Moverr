@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Mover : MonoBehaviour
+{
+    public Transform objetoCentro;
+    public float velocidad = 75f;
+
+    public float altura = 1f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //transform.position = new Vector3(transform.position.x, transform.position.y, objetoCentro.position.z);
+        transform.RotateAround(objetoCentro.position, Vector3.up, velocidad * Time.deltaTime);
+        transform.Translate(new Vector3(0,altura,0) * Time.deltaTime);
+
+        //transform.RotateAround(objetoCentro.position, Vector3.up, velocidad * Time.deltaTime);
+    }
+}

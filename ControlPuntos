@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ControlPuntos : MonoBehaviour
+{
+    //public Text textoPuntos;
+    public int puntuacion = 0;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        puntuacion = 0;
+        ActualizarPuntuacion();
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void ActualizarPuntuacion()
+    {
+        //textoPuntos.text = puntuacion.ToString();
+        Debug.Log(puntuacion);
+    }
+
+    public void AumentarPuntos(int valorIncremento)
+    {
+        //puntuacion++;
+        puntuacion = puntuacion + valorIncremento;
+        ActualizarPuntuacion();
+    }
+}
